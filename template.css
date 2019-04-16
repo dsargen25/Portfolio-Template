@@ -1,0 +1,289 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+:root{
+    --main-bg-color: lightgrey;
+    --main-accent-color: whitesmoke;
+}
+
+body{
+    font-family: "Lato";
+    margin: auto;
+}
+
+body p{
+    font-size: 1.2em;
+    line-height: 200%;
+}
+
+.container{
+    display: grid;
+    grid-template-areas: 
+    "h"
+    "m"
+    "f";
+    grid-template-rows: .5fr auto-fit;
+}
+
+header{
+    grid-area: h;
+    background-image: url("img/moon.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+#title{
+    text-align: center;
+    font-size: 4em;
+    padding: 3em 0;
+    color: var(--main-accent-color);
+}
+
+main{
+    grid-area: m;
+
+}
+
+#middleaside{
+    display: none;
+}
+
+#leftaside{
+    display: none;
+}
+
+footer{
+    grid-area: f;
+}
+
+main, footer{
+    padding: 2em;
+  
+}
+
+section{
+    padding: 1em;
+}
+
+article{
+    padding: 1em 0;
+}
+
+h2{
+    font-size: 2em;
+    padding: 1em;
+}
+
+a{
+    text-decoration: none;
+}
+
+#desktopnav{
+    display: none;
+}
+
+footer h2+p{
+    padding: 1em;
+}
+
+form{
+    margin: auto;
+}
+
+/* ----------------------Start of Hamburger Menu [Mobile] ------------------------- */
+
+/* Menu Button */
+#menuToggle{
+    position: fixed;
+    display: block;
+    
+    top: 50px;
+    left: 50px;
+    
+    z-index: 1;
+}
+
+/* Menu Button Design */
+#menuToggle span{
+    position: relative;
+    display: block;
+    
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    
+    background: var(--main-bg-color);
+    z-index: 1;
+}
+
+/* Menu Press */
+#menuToggle input{
+    position: fixed;
+    display: block;
+    
+    width: 100px;
+    height: 100px;
+    
+    top: 0px;
+    left: 0px;
+    
+    cursor: pointer;
+    opacity: 0;
+    z-index: 2;
+}
+
+#menu{
+    position: absolute;
+    
+    width: 100vw;
+    height: 100vh;
+    margin: -100px 0 0 -50px;
+    padding: 5em 3em;
+    
+    background-color: rgba(245,245,245, .95);
+    
+    transform-origin: 0% 0%;
+    transform: translate(0, -100%);
+    transition: transform .75s;
+  
+}
+
+/* Menu List Items */
+#menu li{
+    display: block;
+    margin: .2em;
+    padding: 1em 2em;
+    
+    text-align: left;
+    font-size: 2em;
+    color: grey;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+
+/* Is Menu Toggled [Checkbox] */
+#menuToggle input:checked ~ ul{
+    transform: none;
+}
+
+.mobileimg{
+    display: block;
+    margin: auto;
+    padding: 1em 0;
+}
+
+/* ------------------------Start of Media Query ----------------------------- */
+
+@media only screen and (min-width: 875px){
+    .mobileimg{
+        display: block;
+        float: left;
+        padding: 0 1.5em 0 0;
+    }
+    
+    article{
+        float: right;
+        padding: 1em;
+        
+    }
+    
+}
+
+/* ------------------------Start of Media Query ----------------------------- */
+
+@media only screen and (min-width: 1200px){
+    
+    body{
+        background-color: var(--main-bg-color);
+    }
+    .container{
+        grid-template-areas: 
+        "h h h h"
+        "la ma m m"
+        "f f f f";
+
+        grid-template-columns: auto-fit;
+        grid-template-rows: 300px 1fr;
+    }
+  
+    #title{
+        text-align: right;
+        font-size: 7em;
+        padding: 0 .5em;
+    }
+    
+    h2{
+        font-size: 1.5em;
+        padding: .75em;
+    }
+    
+    p{
+        font-size: 1em;
+        line-height: 200%;
+    }
+    
+    #leftaside{
+        grid-area: la;
+        display: block;
+        margin: 1.5em 1.5em 0 200px;
+    }
+    
+    #middleaside{
+        grid-area: ma;
+        display: block;
+        margin: 1.5em 1.5em 0 0 ;
+    }
+    
+    main{
+        margin: 1.5em 200px 0 0;
+    }
+    
+    footer{   
+        margin: 1.5em 200px;
+    }
+    
+    main, footer, #leftaside, #middleaside{
+        box-shadow: 0 10px 6px -6px #777;
+        background-color: var(--main-accent-color);
+        padding: 2em;   
+    }
+    
+    #desktopnav{
+        display: block;
+        padding: 0 1em;
+    }
+    
+    #desktopnav ul li{
+        display: inline-block;
+        padding: 1em;
+        
+        font-size: 2em;
+        text-align: center;
+        color: var(--main-accent-color);
+        text-transform: uppercase;
+    }
+    
+    #menu, #menuToggle{
+        display: none;    
+    }
+    
+    .mobileimg{
+        display: none;
+    }
+    
+    .middleasideimg{
+        display: block;
+        padding: 1em 0;
+        margin: auto;      
+    }
+    
+    h2+p{
+        padding: 1em;
+    }
+    
+    footer{
+        padding: 1em;
+    }
+
+}
